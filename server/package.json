@@ -1,0 +1,23 @@
+{
+  "name": "soulmagle-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@xenova/transformers": "^2.17.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2",
+    "nodemon": "^3.1.9",
+    "openai": "^4.83.0",
+    "pg": "^8.9.0",
+    "pgvector": "^0.2.0",
+    "socket.io": "^4.6.1"
+  }
+}

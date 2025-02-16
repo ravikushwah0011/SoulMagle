@@ -1,0 +1,11 @@
+# .gitignore
+
+# dependencies
+node_modules/
+package-lock.json
+# Environments  variables
+.env
+
+# Testing
+testing_files/
+.setupProxy.js
