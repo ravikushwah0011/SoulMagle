@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function Profile() {
   const [user, setUser] = useState(null);
   const [editing, setEditing] = useState(false);
@@ -60,7 +62,7 @@ function Profile() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/logout", { userId });
+      await axios.post(`${API_URL}/api/logout`, { userId });
 
       // ✅ Clear local storage
       localStorage.removeItem("user");
