@@ -10,7 +10,7 @@ import UserCard from "../routes/UserCard";
 import Navbar from "../Navbar";
 import "./Pages.css"
 
-
+const API_URL = process.env.REACT_APP_API_URL;
 
 const ChatUsersPage = () => {
   const { currentUser } = useContext(AuthContext);
@@ -25,7 +25,7 @@ const ChatUsersPage = () => {
     console.log("Fetching users..."); // ✅ Debugging
 
     axios
-      .get("http://localhost:5000/api/users/live")
+      .get(`${API_URL}/api/users/live`)
       .then((response) => {
         // console.log("API Response:", response.data); // ✅ See what backend returns
         setLiveUsers(response.data.live_Users || []); // Ensure fallback to empty array
