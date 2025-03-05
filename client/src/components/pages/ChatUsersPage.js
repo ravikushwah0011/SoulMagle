@@ -70,7 +70,7 @@ const ChatUsersPage = () => {
             .map((user) => (
               <div key={user.id}>
               {/* {UserCard(user, !user.is_live)} */}
-              // <UserCard
+               <UserCard
                 //  key={user.id}
                  user={user}
                  showLastActive={!user.is_live}

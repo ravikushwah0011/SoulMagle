@@ -20,8 +20,15 @@ const AIMatchSearch = () => {
   const [error, setError] = useState(null);
 
   const handleSearch = async () => {
-    setIsLoading(true);
-    setError(null);
+    if (!query) {
+    setIsLoading(false);
+    setError("Please enter a search query.");
+    return;
+    }
+    else {
+      setError(null);
+      setIsLoading(true);
+    }
     try{
     const res = await fetch("/api/search-users", {
       method: "POST",
@@ -55,19 +62,22 @@ const AIMatchSearch = () => {
   return (
     <div className="search-container">
       <input
+        className="rounded-lg p-2 border border-pink-700"
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search for users by interests..."
       />
-      <button onClick={handleSearch} disabled={isLoading}>
+      <button onClick={handleSearch} disabled={isLoading}
+        className="rounded-lg p-2 border border-pink-700 bg-gradient-to-b from-sky-700 to-yellow-300 text-white hover:bg-gradient-to-t hover:from-sky-700 hover:to-yellow-300"
+      >
         {isLoading ? "Searching..." : "Search"}
       </button>
 
       {error && <div className="error-message">{error}</div>}
 
       {isLoading ? (
-        <div className="loading-spinner">
+        <div className="text-center loading-spinner">
           {/* Add your spinner here */}
           <ClipLoader size={50} color="#3498db" />
           <p>Finding 💫 your Soulmates...🚀</p>

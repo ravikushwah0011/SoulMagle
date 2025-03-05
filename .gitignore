@@ -8,4 +8,4 @@ package-lock.json
 
 # Testing
 testing_files/
-.setupProxy.js
+setupProxy.js

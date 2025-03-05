@@ -11,11 +11,12 @@ const UserCard = ({user, showLastActive, explanation }) => {
   return (
       <div  className="user-card">
         <img
-          src={user.profile_photo || "https://via.placeholder.com/100"}
+          src={user.profile_photo || "assets/image/blank-dp.png"}
           alt="Profile"
           className="user-image"
         />
         <h3 className="user-name">{user.name}</h3>
+        {/* <div className="w-full flex flex-col justify-start"> */}
         <p className="user-interests">Interests: 
           <span className="interest-text"> {user.interests}</span>
           </p>
@@ -27,6 +28,7 @@ const UserCard = ({user, showLastActive, explanation }) => {
         {showLastActive && (
           <p className="user-last-active">Last Active: {user.last_active}</p>
         )}
+        {/* </div> */}
         <button
           disabled={showLastActive}
           className="join-chat-btn"

@@ -37,12 +37,12 @@ function Home() {
   };
 
   return (
-    <div style={{ margin: "auto", textAlign: "center" }}>
+    <div style={{ margin: "auto", paddingTop: "60px"}}>
 
       {/* <Navbar /> */}
-      
+      <h1 className="text-indigo-900 from-sky-700 to-yellow-300 text-3xl">Welcome to SoulMagle!</h1>
       <div style={{ padding: "1em"}}>
-        <h2>AI Interest Search</h2>
+        <h2 style={{fontSize: "1.5em"}}>AI Search</h2>
         <p className="typing-text">
           {displayedText}
           <span className="cursor">|</span>
@@ -51,7 +51,7 @@ function Home() {
         
       </div>
       <div style={{ padding: "1em"}}>
-        <h2 style={{}}>Random People Available for Video Chat</h2>
+        <h2 style={{fontSize: "1.5em"}}>Random People Available for Video Chat</h2>
         <button onClick={goToChat} className="random-chat-btn">Start Radom Chat</button>
       </div>
     </div>

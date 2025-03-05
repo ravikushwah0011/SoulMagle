@@ -79,7 +79,7 @@ router.post("/logout", async (req, res) => {
       userId,
     ]);
     
-    console.log(userId, user.rows[0]);
+    // console.log(userId, user.rows[0]);
     try {
       // ✅ Ensure userId is provided
       if (!userId) {

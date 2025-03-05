@@ -68,12 +68,13 @@ app.get("/api/profile/:userId", async (req, res) => {
 
 // Update user profile by ID
 app.put("/api/profile/:userId", async (req, res) => {
+  // console.log(req.body);
   const { userId } = req.params;
-  const { name, interests, email } = req.body;
+  const { name, interests, email, profile_photo } = req.body;
   try {
     const result = await pool.query(
-      "UPDATE users SET name=$1, interests=$2, email=$3 WHERE id=$4 RETURNING *",
-      [name, interests, email, userId]
+      "UPDATE users SET name=$1, interests=$2, email=$3, profile_photo=$4 WHERE id=$5 RETURNING *",
+      [name, interests, email, profile_photo, userId]
     );
     res.json({ user: result.rows[0] });
   } catch (err) {

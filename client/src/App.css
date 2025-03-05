@@ -17,8 +17,10 @@
 
 /* Add top padding to the main content so it doesn't hide under the navbar */
 .content {
-  padding-top: 60px;
-  margin-top: 1rem; /* same as navbar height */
+  /* padding-top: 60px; */
+  text-align: center;
+  /* background: #01fff2; */
+  /* margin-top: 1rem; same as navbar height */
 }
 
 .header {

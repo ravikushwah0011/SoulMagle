@@ -5,12 +5,31 @@
   }
   
   .video-container {
-    display: grid;
+    flex-wrap: wrap;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     flex-grow: 1;
+    align-items: center;
+    justify-items: center;
   }
+
   
+  .chat-room-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .chat-video-container {
+    flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  transition: width 0.5s ease-in-out;
+  }
   /* video {
     width: 100px;
     height: 200px;
@@ -35,20 +54,46 @@
 }
 
 /* Video Container */
-.video-container {
+/* .video-container {
     display: flex;
     gap: 16px;
     justify-content: center;
-}
+} */
 
 .video-box {
+    /* position: relative;
     width: 45%;
+    max-width: 500px; */
+    width: 50%;
     max-width: 400px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Chat Input & Send Button */
+.chat-messages-container {
+    display: none;
+  background: #222;
+  color: white;
+  padding: 20px;
+  border-left: 2px solid #444;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Split Screen View */
+.chat-room-container.split-view {
+    flex-direction: row;
+  }
+  
+  .chat-room-container.split-view .chat-video-container {
+    flex: 3;
+  }
+  
+  .chat-room-container.split-view .chat-messages-container {
+    flex: 1;
+    display: block;
+  }
+
 .chat-input-container {
     margin-top: 16px;
     display: flex;
@@ -116,7 +161,7 @@
 
 /* End Chat Button */
 .end-chat-button {
-    background-color: #dc3545;
+    background-color: #f7cdd1;
     color: white;
     border: none;
     padding: 10px 16px;
@@ -132,3 +177,27 @@
 .end-chat-button:hover {
     background-color: #b02a37;
 }
+
+@media (max-width: 768px) {
+    .video-box {
+      width: 100%;
+    }
+
+    .video-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .chat-room-container.split-view {
+      flex-direction: column;
+    }
+  
+    .chat-room-container.split-view .chat-video-container {
+      flex: 2;
+    }
+  
+    .chat-room-container.split-view .chat-messages-container {
+      flex: 1;
+      width: 100%;
+    }
+  }
