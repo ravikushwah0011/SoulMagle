@@ -57,12 +57,12 @@ function Profile() {
 
   const saveProfile = async () => {
     try {
-      const res = await axios.put(`/api/profile/${user.id}`, formData);
+      const res = await axios.put(`${API_URL}/api/profile/${user.id}`, formData);
       setUser(res.data.user);
 
       console.log(user.id);
       const userId = user.id;
-      await axios.post("/api/interests-embeddings", {userId, interests: formData.interests})
+      await axios.post(`${API_URL}/api/interests-embeddings`, {userId, interests: formData.interests})
 
       
       localStorage.setItem("user", JSON.stringify(res.data.user));
