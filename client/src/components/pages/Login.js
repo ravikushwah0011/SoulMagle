@@ -10,6 +10,7 @@ import "./Pages.css";
 // import appLogo from "../../assets/app_logo.jpg";
 
 import { useSocket } from "../context/socketContext";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function Login() {
   const socket = useSocket();
@@ -57,12 +58,12 @@ function Login() {
     e.preventDefault();
     try {
       if (isSignup) {
-        const res = await axios.post("/api/signup", formData);
+        const res = await axios.post(`${API_URL}/api/signup`, formData);
         // localStorage.setItem("user", JSON.stringify(res.data.user));
 
         // Converts Interests into vector embeddings
         const userId = res.data.user.id;
-        await axios.post("/api/interests-embeddings", {
+        await axios.post(`${API_URL}/api/interests-embeddings`, {
           userId,
           interests: formData.interests,
         });
@@ -70,7 +71,7 @@ function Login() {
         login(res.data.user);
         socket.emit("register", res.data.user.id); // ✅ Register user after login
       } else {
-        const res = await axios.post("/api/login", formData);
+        const res = await axios.post(`${API_URL}/api/login`, formData);
         login(res.data.user);
         // localStorage.setItem("user", JSON.stringify(res.data.user));
         console.log(res.data.user.id);
