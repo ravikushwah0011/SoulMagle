@@ -22,20 +22,25 @@ import chatUserRoutes from "./routes/chat-users.js";
 import searchRoutes from "./routes/search-users.js";
 import llmRoutes from "./routes/llm.js";
 
+import dotenv from "dotenv";
+dotenv.config();
+
+const CLIENT_API = process.env.CLIENT_API_URL;
+
 const app = express();
 
 // ===== HTTP Server & Socket.IO =====
 const server = http.createServer(app);
 const io = new socketIo(server, {
   cors: {
-    origin: ["http://localhost:3000", ""], // Allow frontend access
+    origin: [`${CLIENT_API}`, ""], // Allow frontend access
     methods: ["GET", "POST"],
   },
 });
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", ""],
+    origin: [`${CLIENT_API}`, ""],
     methods: ["GET", "POST"],
     credentials: true,
   })
