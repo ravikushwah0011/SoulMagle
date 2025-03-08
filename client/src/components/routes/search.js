@@ -7,6 +7,8 @@ import UserCard from "./UserCard";
 import './routes.css'
 import { ClipLoader } from 'react-spinners';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const AIMatchSearch = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -30,7 +32,7 @@ const AIMatchSearch = () => {
       setIsLoading(true);
     }
     try{
-    const res = await fetch("/api/search-users", {
+    const res = await fetch(`${API_URL}/api/search-users`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query, userId: currentUser.id }),
