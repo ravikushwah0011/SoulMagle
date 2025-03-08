@@ -35,8 +35,8 @@
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
-    transform: scaleX(-1); /* Mirror front camera */
-  /* } */ */
+    transform: scaleX(-1); 
+   }  */
 
 /* General Chat Container */
 .chat-container {
